@@ -2,9 +2,9 @@
 *.log
 *.prefs
 /target
-<<<<<<< HEAD
 *.iml
-=======
+*/target
+*/bin
 
 # User-specific stuff
 .idea/**/workspace.xml
@@ -39,4 +39,3 @@ out/
 
 # Editor-based Rest Client
 .idea/httpRequests
->>>>>>> 027cca8e28a4e21bc9d3f06a3a60d6680afed597
