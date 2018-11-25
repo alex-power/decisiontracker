@@ -11,9 +11,9 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="data-layer" target="1.6" />
-      <module name="decisiontracker" target="1.6" />
-      <module name="web-server" target="1.6" />
+      <module name="data-layer" target="1.8" />
+      <module name="decisiontracker" target="1.8" />
+      <module name="web-server" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
