@@ -40,7 +40,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <!--<plugin>
+            <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
                 <version>1.6</version>
@@ -67,14 +67,14 @@
                             <arguments>install</arguments>
                         </configuration>
                     </execution>
-                    <execution>
+                    <!--<execution>
                         <id>webpack build</id>
                         <goals>
                             <goal>webpack</goal>
                         </goals>
-                    </execution>
+                    </execution>-->
                 </executions>
-            </plugin>-->
+            </plugin>
         </plugins>
     </build>
 </project>
