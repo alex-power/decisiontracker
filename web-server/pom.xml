@@ -14,6 +14,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- frontend-mavin-plugin -->
+        <workingDirectory>src/main/typescript</workingDirectory>
     </properties>
 
     <dependencies>
@@ -58,6 +60,7 @@
                             <npmVersion>6.4.1</npmVersion>
                         </configuration>
                     </execution>
+
                     <execution>
                         <id>npm install</id>
                         <goals>
@@ -67,6 +70,7 @@
                             <arguments>install</arguments>
                         </configuration>
                     </execution>
+
                     <!--<execution>
                         <id>webpack build</id>
                         <goals>
