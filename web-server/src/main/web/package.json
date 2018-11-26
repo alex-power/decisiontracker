@@ -1,0 +1,27 @@
+{
+  "name": "web-server",
+  "version": "1.0.0",
+  "description": "A decision tracking service",
+  "repository": "https://github.com/alex-power/decisiontracker",
+  "main": "app.js",
+  "scripts": {
+    "build-ts": "del /s /q \"../resources/javascript\" & tsc -outDir ../resources/javascript",
+    "build-scss": "del /s /q \"../resources/css\" & node-sass css -o ../resources/css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "typescript": "^3.1.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.0",
+    "node-sass": "^4.7.2"
+  }
+}

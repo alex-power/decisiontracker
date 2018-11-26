@@ -2,6 +2,9 @@
 *.log
 *.prefs
 /target
+node_modules
+web-server/**/javascript
+web-server/**/css
 *.iml
 */target
 */bin
