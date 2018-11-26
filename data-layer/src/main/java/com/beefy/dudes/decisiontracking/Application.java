@@ -1,4 +1,4 @@
-package com.beefy.dudes.decisiontracking.main;
+package com.beefy.dudes.decisiontracking;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
