@@ -3,6 +3,8 @@
 *.prefs
 /target
 node_modules
+web-server/**/javascript
+web-server/**/css
 
 # User-specific stuff
 .idea/**/workspace.xml
