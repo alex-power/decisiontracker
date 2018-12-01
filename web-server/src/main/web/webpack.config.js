@@ -1,13 +1,16 @@
 var path = require('path');
 
 module.exports = {
-    entry: './app.js',
+    entry: '../../../target/javascript/app.js',
     devtool: 'sourcemaps',
     cache: true,
     mode: 'development',
     output: {
         path: __dirname,
-        filename: '../resources/javascript/built/bundle.js'
+        filename: '../../../target/custom-build/javascript/bundle.js'
+    },
+    resolve: {
+        modules: [ "../../src/main/web/node_modules" ]
     },
     module: {
         rules: [

@@ -5,12 +5,14 @@
   "repository": "https://github.com/alex-power/decisiontracker",
   "main": "app.js",
   "scripts": {
-    "build-ts": "del /s /q \"../resources/javascript\" & tsc -outDir ../resources/javascript",
-    "build-scss": "del /s /q \"../resources/css\" & node-sass css -o ../resources/css"
+    "build-ts": "tsc -outDir ../../../target/javascript",
+    "build-scss": "node-sass css -o ../../../target/custom-build/css"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/react": "^16.0.0",
+    "@types/react-dom": "^16.0.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "typescript": "^3.1.6"
