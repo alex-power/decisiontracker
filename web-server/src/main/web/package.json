@@ -6,7 +6,7 @@
   "main": "app.js",
   "scripts": {
     "build-ts": "tsc -outDir ../../../target/javascript",
-    "build-scss": "node-sass css -o ../../../target/custom-build/css"
+    "build-scss": "node-sass css components -o ../../../target/custom-build/css"
   },
   "author": "",
   "license": "ISC",
