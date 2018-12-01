@@ -9,6 +9,9 @@ module.exports = {
         path: __dirname,
         filename: '../../../target/custom-build/javascript/bundle.js'
     },
+    resolve: {
+        modules: [ "../../src/main/web/node_modules" ]
+    },
     module: {
         rules: [
             {

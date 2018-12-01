@@ -35,6 +35,9 @@
 
     <build>
         <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
             <!-- Include compiled JS and CSS in the JAR -->
             <resource>
                 <directory>target/custom-build</directory>
