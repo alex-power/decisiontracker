@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-    entry: '../../../target/javascript/app.js',
+    entry: '../../../target/javascript/App.js',
     devtool: 'sourcemaps',
     cache: true,
     mode: 'development',
