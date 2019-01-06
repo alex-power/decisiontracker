@@ -5,7 +5,7 @@ import { Drawer, List, ListItem, ListItemText, Divider, ListItemAvatar } from "@
 
 export class Navigation extends React.Component<INavigationProps> {
     public render() {
-        const { navigationGroups, onNavigationItemClick, selectedIndex } = this.props;
+        const { navigationGroups, onNavigationItemClick } = this.props;
 
         return (
             <Drawer variant="permanent" anchor="left">
@@ -16,7 +16,6 @@ export class Navigation extends React.Component<INavigationProps> {
                         <List key={index}>
                             {group.items.map((item, index) => (
                                 <ListItem
-                                    selected={index == selectedIndex}
                                     button
                                     key={item.primaryText}
                                     onClick={event => onNavigationItemClick(event, index)}
@@ -32,10 +31,4 @@ export class Navigation extends React.Component<INavigationProps> {
             </Drawer>
         );
     }
-
-    private onListItemClick = (index: number) => {
-        this.setState({
-            selectedIndex: index
-        });
-    };
 }

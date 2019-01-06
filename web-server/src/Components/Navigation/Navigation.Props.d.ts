@@ -33,9 +33,4 @@ export interface INavigationProps {
      * Optional handler for navigation item clicks
      */
     onNavigationItemClick?: (event: React.MouseEvent<HTMLElement>, index: number) => void;
-
-    /**
-     * Optional currently selected navigation item
-     */
-    selectedIndex?: number;
 }
