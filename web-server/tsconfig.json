@@ -8,7 +8,8 @@
         "jsx": "react",
         "baseUrl": "./",
         "paths": {
-            "Components/*": ["./src/Components/*"]
+            "Components/*": ["./src/Components/*"],
+            "Frame/*": ["./src/Frame/*"]
         }
     },
     "include": ["./src/**/*"]

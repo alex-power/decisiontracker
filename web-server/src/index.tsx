@@ -1,5 +1,25 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Layout } from "Components/Layout";
+import { Navigation, INavigationGroup } from "Components/Navigation";
+import { Badge } from "@material-ui/core";
+import InboxIcon from "@material-ui/icons/MoveToInbox";
+import Alarm from "@material-ui/icons/Alarm";
 
-ReactDOM.render(<Layout />, document.getElementById("react-root"));
+const navigationGroups: INavigationGroup[] = [
+    {
+        items: [
+            { primaryText: "Inbox", secondaryText: "Kicker text goes here!", onRenderIcon: () => <InboxIcon /> },
+            {
+                primaryText: "Notifications",
+                onRenderIcon: () => (
+                    <Badge color="secondary" badgeContent={2}>
+                        <Alarm />
+                    </Badge>
+                )
+            }
+        ]
+    },
+    { items: [{ primaryText: "New group test" }] }
+];
+
+ReactDOM.render(<Navigation navigationGroups={navigationGroups} />, document.getElementById("react-root"));
