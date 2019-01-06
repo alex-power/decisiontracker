@@ -12,6 +12,7 @@
     "license": "ISC",
     "dependencies": {
         "@material-ui/core": "3.7.1",
+        "@material-ui/icons": "^3.0.1",
         "@types/react": "^16.7.18",
         "@types/react-dom": "^16.0.11",
         "react": "^16.7.0",
