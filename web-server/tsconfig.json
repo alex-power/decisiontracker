@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "outDir": "./bin/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "target": "es2017",
+        "jsx": "react",
+        "baseUrl": "."
+    },
+    "include": ["./src/**/*"]
+}

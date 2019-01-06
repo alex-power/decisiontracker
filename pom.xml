@@ -10,7 +10,6 @@
 
     <modules>
         <module>data-layer</module>
-        <module>web-server</module>
     </modules>
 
     <properties>
