@@ -1,7 +1,6 @@
 package com.beefy.dudes.decisiontracking.model;
 
 import java.util.Collection;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@Entity
+// @Entity
 @Builder
 public class Project {
   @Id

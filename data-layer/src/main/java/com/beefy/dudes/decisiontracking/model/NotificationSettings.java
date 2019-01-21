@@ -1,7 +1,6 @@
 package com.beefy.dudes.decisiontracking.model;
 
 import java.util.Map;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
-@Entity
+// @Entity
 public class NotificationSettings {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)

@@ -18,8 +18,10 @@ class DataSourceConfig {
   public DataSource dataSource() {
 
     EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-    EmbeddedDatabase db = builder.setType(EmbeddedDatabaseType.HSQL).build();
+    EmbeddedDatabase db = builder.setType(EmbeddedDatabaseType.H2).setName("LocalDb").build();
     return db;
   }
+
+
 
 }
