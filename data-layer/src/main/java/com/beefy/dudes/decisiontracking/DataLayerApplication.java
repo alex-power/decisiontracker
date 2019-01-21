@@ -25,7 +25,6 @@ public class DataLayerApplication {
 
         log.info("Saving user: {}", user);
         users.save(user);
-
       }
     };
 
