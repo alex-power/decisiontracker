@@ -21,16 +21,10 @@ public class DataLayerApplication {
     return new CommandLineRunner() {
       @Override
       public void run(String... args) throws Exception {
-        User user = new User();
-
-        user.setEmail("a@a.com");
-        user.setName("test");
+        User user = User.builder().email("test@test.com").name("TEST").build();
 
         log.info("Saving user: {}", user);
         users.save(user);
-
-        User user2 = users.findAll().iterator().next();
-        log.info("From DB: {}", user2);
 
       }
     };
