@@ -28,7 +28,7 @@ export class Users extends React.Component<{}, UsersState> {
                             <TableCell align="right">Email</TableCell>
                         </TableRow>
                     </TableHead>
-                    <TableBody>{currentUsers && currentUsers.map(this.makeRow)}</TableBody>
+                    <TableBody>{currentUsers ? currentUsers.map(this.makeRow) : this.makeLoadingRow()}</TableBody>
                 </Table>
             </Paper>
         );
@@ -37,14 +37,28 @@ export class Users extends React.Component<{}, UsersState> {
     public componentDidMount() {
         this.dataProvider = Page.getDataProvider<User>(UserDataProviderName);
         this.dataProvider.fetch().then((users: User[]) => {
-            this.setState({ currentUsers: users });
+            setTimeout(() => {
+                this.setState({ currentUsers: users });
+            }, 3000);
         });
     }
+
+    private makeLoadingRow = () => {
+        return (
+            <TableRow key="loading">
+                <TableCell align="center" colSpan={2}>
+                    <CircularProgress />
+                </TableCell>
+            </TableRow>
+        );
+    };
 
     private makeRow = (user: User) => {
         return (
             <TableRow key={user.id}>
-                <TableCell component="th" scope="row">{user.name}</TableCell>
+                <TableCell component="th" scope="row">
+                    {user.name}
+                </TableCell>
                 <TableCell align="right">{user.email}</TableCell>
             </TableRow>
         );
