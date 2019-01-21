@@ -1,3 +1,6 @@
+import { WithStyles } from "@material-ui/core";
+import { styles } from ".";
+
 export interface INavigationItem {
     /**
      * Optional icon render method
@@ -23,7 +26,7 @@ export interface INavigationGroup {
     items: INavigationItem[];
 }
 
-export interface INavigationProps {
+export interface INavigationProps extends WithStyles<typeof styles> {
     /**
      * Navigation groups to display in the left vertical nav
      */

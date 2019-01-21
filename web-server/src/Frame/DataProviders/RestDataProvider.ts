@@ -5,7 +5,7 @@ export class RestDataProvider<DataType, QueryArgs = {}> implements IDataProvider
     constructor(private endpointName: string) {}
 
     public fetch(params?: {}): Promise<DataType[]> {
-        return axios.get<DataType[]>(`http://localhost:3001/${this.endpointName}`).then(this.translateRestResponse);
+        return axios.get<DataType[]>(`http://localhost:9090/${this.endpointName}`).then(this.translateRestResponse);
     }
 
     public getAll(): Promise<DataType[]> {

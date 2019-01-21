@@ -1,7 +1,7 @@
 import { IDataProvider } from "./IDataProvider";
 
 export class CachingDataProvider<DataType, QueryArgs> implements IDataProvider<DataType, QueryArgs> {
-    private cache: { [key: string]: DataType };
+    private cache: { [key: string]: DataType } = {};
 
     constructor(private childProvider: IDataProvider<DataType, QueryArgs>, private keyExtractor: (item: DataType) => string) {}
 

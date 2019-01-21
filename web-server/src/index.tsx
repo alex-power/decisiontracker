@@ -25,8 +25,10 @@ const navigationGroups: INavigationGroup[] = [
 
 ReactDOM.render(
     <div style={{ display: "flex", flexDirection: "row" }}>
-        <Navigation navigationGroups={navigationGroups} />
-        <Users />
+        <Navigation navigationGroups={navigationGroups} onNavigationItemClick={(event, index) => console.log(`Clicked on ${index}`)} />
+        <main style={{ flexGrow: 1 }}>
+            <Users />
+        </main>
     </div>,
     document.getElementById("react-root")
 );
