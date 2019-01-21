@@ -9,23 +9,19 @@ export class Navigation extends React.Component<INavigationProps> {
 
         return (
             <Drawer variant="permanent" anchor="left">
-                <Divider />
+                <Divider key="divider-base" />
 
                 {navigationGroups.map((group, index) => (
                     <>
-                        <List key={index}>
+                        <List key={`list-${index}`}>
                             {group.items.map((item, index) => (
-                                <ListItem
-                                    button
-                                    key={item.primaryText}
-                                    onClick={event => onNavigationItemClick(event, index)}
-                                >
+                                <ListItem button key={item.primaryText} onClick={event => onNavigationItemClick(event, index)}>
                                     {item.onRenderIcon && <ListItemAvatar>{item.onRenderIcon()}</ListItemAvatar>}
                                     <ListItemText primary={item.primaryText} secondary={item.secondaryText} />
                                 </ListItem>
                             ))}
                         </List>
-                        {index !== navigationGroups.length - 1 && <Divider />}
+                        {index !== navigationGroups.length - 1 && <Divider key={`divider-${index}`} />}
                     </>
                 ))}
             </Drawer>

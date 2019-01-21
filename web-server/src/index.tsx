@@ -4,6 +4,7 @@ import { Navigation, INavigationGroup } from "Components/Navigation";
 import { Badge } from "@material-ui/core";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import Alarm from "@material-ui/icons/Alarm";
+import { Users } from "PageContent/Admin/Users";
 
 const navigationGroups: INavigationGroup[] = [
     {
@@ -22,4 +23,10 @@ const navigationGroups: INavigationGroup[] = [
     { items: [{ primaryText: "New group test" }] }
 ];
 
-ReactDOM.render(<Navigation navigationGroups={navigationGroups} />, document.getElementById("react-root"));
+ReactDOM.render(
+    <div style={{ display: "flex", flexDirection: "row" }}>
+        <Navigation navigationGroups={navigationGroups} />
+        <Users />
+    </div>,
+    document.getElementById("react-root")
+);

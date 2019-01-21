@@ -9,7 +9,8 @@
         "baseUrl": "./",
         "paths": {
             "Components/*": ["./src/Components/*"],
-            "Frame/*": ["./src/Frame/*"]
+            "Frame/*": ["./src/Frame/*"],
+            "PageContent/*": ["./src/PageContent/*"]
         }
     },
     "include": ["./src/**/*"]
