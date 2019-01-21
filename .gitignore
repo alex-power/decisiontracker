@@ -2,6 +2,7 @@
 *.log
 *.prefs
 /target
+node_modules
 *.iml
 */target
 */bin
