@@ -25,7 +25,7 @@ export class Users extends React.Component<{}, UsersState> {
                     <TableHead>
                         <TableRow>
                             <TableCell>Name</TableCell>
-                            <TableCell>Email</TableCell>
+                            <TableCell align="right">Email</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>{currentUsers && currentUsers.map(this.makeRow)}</TableBody>
@@ -44,8 +44,8 @@ export class Users extends React.Component<{}, UsersState> {
     private makeRow = (user: User) => {
         return (
             <TableRow key={user.id}>
-                <TableCell>{user.name}</TableCell>
-                <TableCell>{user.email}</TableCell>
+                <TableCell component="th" scope="row">{user.name}</TableCell>
+                <TableCell align="right">{user.email}</TableCell>
             </TableRow>
         );
     };
