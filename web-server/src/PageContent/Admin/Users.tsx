@@ -51,6 +51,39 @@ export class Users extends React.Component<{}, UsersState> {
             });
     }
 
+    private makeErrorRow = () => {
+        return this.makeSpanningRow(<>There was an error retrieving data to display</>);
+    };
+
+    private makeLoadingRow = () => {
+        return this.makeSpanningRow(<CircularProgress />);
+    };
+
+    private makeRow = (user: User) => {
+        return (
+            <TableRow key={user.id}>
+                <TableCell component="th" scope="row">
+                    {user.name}
+                </TableCell>
+                <TableCell align="right">{user.email}</TableCell>
+            </TableRow>
+        );
+    };
+
+    private makeSpanningRow = (children: JSX.Element) => {
+        return (
+            <TableRow key="loading">
+                <TableCell align="center" colSpan={2}>
+                    {children}
+                </TableCell>
+            </TableRow>
+        );
+    };
+
+    private makeZeroDataRow = () => {
+        return this.makeSpanningRow(<>There is nothing to display currently</>);
+    };
+
     private renderTableBody(users: User[] | undefined): JSX.Element {
         if (this.state.error) {
             return this.makeErrorRow();
@@ -65,37 +98,4 @@ export class Users extends React.Component<{}, UsersState> {
             return this.makeLoadingRow();
         }
     }
-
-    private makeSpanningRow = (children: JSX.Element) => {
-        return (
-            <TableRow key="loading">
-                <TableCell align="center" colSpan={2}>
-                    {children}
-                </TableCell>
-            </TableRow>
-        );
-    };
-
-    private makeLoadingRow = () => {
-        return this.makeSpanningRow(<CircularProgress />);
-    };
-
-    private makeErrorRow = () => {
-        return this.makeSpanningRow(<>There was an error retrieving data to display</>);
-    };
-
-    private makeRow = (user: User) => {
-        return (
-            <TableRow key={user.id}>
-                <TableCell component="th" scope="row">
-                    {user.name}
-                </TableCell>
-                <TableCell align="right">{user.email}</TableCell>
-            </TableRow>
-        );
-    };
-
-    private makeZeroDataRow = () => {
-        return this.makeSpanningRow(<>There is nothing to display currently</>);
-    };
 }
