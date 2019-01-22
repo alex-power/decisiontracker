@@ -6,6 +6,7 @@ import { Page } from "Frame/Page";
 
 interface UsersState {
     currentUsers?: User[];
+    error: boolean;
 }
 
 export class Users extends React.Component<{}, UsersState> {
@@ -13,11 +14,13 @@ export class Users extends React.Component<{}, UsersState> {
 
     constructor(props: {}) {
         super(props);
-        this.state = {};
+        this.state = {
+            error: false
+        };
     }
 
     public render() {
-        const { currentUsers } = this.state;
+        const { currentUsers, error } = this.state;
 
         return (
             <Paper>
@@ -28,7 +31,7 @@ export class Users extends React.Component<{}, UsersState> {
                             <TableCell align="right">Email</TableCell>
                         </TableRow>
                     </TableHead>
-                    <TableBody>{currentUsers ? currentUsers.map(this.makeRow) : this.makeLoadingRow()}</TableBody>
+                    <TableBody>{this.renderTableBody(currentUsers)}</TableBody>
                 </Table>
             </Paper>
         );
@@ -36,21 +39,49 @@ export class Users extends React.Component<{}, UsersState> {
 
     public componentDidMount() {
         this.dataProvider = Page.getDataProvider<User>(UserDataProviderName);
-        this.dataProvider.fetch().then((users: User[]) => {
-            setTimeout(() => {
-                this.setState({ currentUsers: users });
-            }, 3000);
-        });
+        this.dataProvider
+            .fetch()
+            .then((users: User[]) => {
+                setTimeout(() => {
+                    this.setState({ currentUsers: users });
+                }, 3000);
+            })
+            .catch(() => {
+                this.setState({ error: true });
+            });
     }
 
-    private makeLoadingRow = () => {
+    private renderTableBody(users: User[] | undefined): JSX.Element {
+        if (this.state.error) {
+            return this.makeErrorRow();
+        }
+        if (users) {
+            if (users.length === 0) {
+                return this.makeZeroDataRow();
+            } else {
+                return <> {users.map(this.makeRow)} </>;
+            }
+        } else {
+            return this.makeLoadingRow();
+        }
+    }
+
+    private makeSpanningRow = (children: JSX.Element) => {
         return (
             <TableRow key="loading">
                 <TableCell align="center" colSpan={2}>
-                    <CircularProgress />
+                    {children}
                 </TableCell>
             </TableRow>
         );
+    };
+
+    private makeLoadingRow = () => {
+        return this.makeSpanningRow(<CircularProgress />);
+    };
+
+    private makeErrorRow = () => {
+        return this.makeSpanningRow(<>There was an error retrieving data to display</>);
     };
 
     private makeRow = (user: User) => {
@@ -62,5 +93,9 @@ export class Users extends React.Component<{}, UsersState> {
                 <TableCell align="right">{user.email}</TableCell>
             </TableRow>
         );
+    };
+
+    private makeZeroDataRow = () => {
+        return this.makeSpanningRow(<>There is nothing to display currently</>);
     };
 }
