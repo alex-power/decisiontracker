@@ -1,0 +1,1 @@
+export { IService, Service } from "./Service";

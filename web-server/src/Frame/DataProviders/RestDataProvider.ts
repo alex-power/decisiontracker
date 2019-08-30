@@ -1,6 +1,7 @@
 import { IDataProvider } from "./IDataProvider";
 import axios, { AxiosResponse } from "axios";
 
+// TODO: Set up query args
 export class RestDataProvider<DataType, QueryArgs = {}> implements IDataProvider<DataType, QueryArgs> {
     constructor(private endpointName: string) {}
 

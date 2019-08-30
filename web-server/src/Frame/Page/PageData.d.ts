@@ -1,4 +1,5 @@
 import { IDataProvider } from "Frame/DataProviders";
+import { IService } from "Frame/Service";
 
 export interface IPageData {
     /**
@@ -13,4 +14,8 @@ export interface IPageData {
      * @param name 
      */
     registerDataProvider(dataProvider: IDataProvider<any>, name: string): void;
+
+    getService<ServiceType extends IService>(name: string): ServiceType;
+
+    registerService(service: IService, name: string): void;
 }

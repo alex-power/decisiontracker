@@ -9,6 +9,11 @@ export interface INavigationItem {
     onRenderIcon?: () => JSX.Element;
 
     /**
+     * Optional onClick handler for this item
+     */
+    onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+
+    /**
      * Text to display
      */
     primaryText: string;
@@ -31,9 +36,4 @@ export interface INavigationProps extends WithStyles<typeof styles> {
      * Navigation groups to display in the left vertical nav
      */
     navigationGroups: INavigationGroup[];
-
-    /**
-     * Optional handler for navigation item clicks
-     */
-    onNavigationItemClick?: (event: React.MouseEvent<HTMLElement>, index: number) => void;
 }
