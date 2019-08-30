@@ -2,7 +2,8 @@ import * as React from "react";
 import { IUserDataProvider, User, UserDataProviderName } from "Frame/DataProviders/User";
 import { Paper, TableCell, TableBody, CircularProgress } from "@material-ui/core";
 import { Table, TableHead, TableRow } from "@material-ui/core";
-import { Page } from "Frame/Page";
+import { PageContext } from "Frame/Page";
+import { IHistoryService, HistoryServiceName, IHistoryState } from "Frame/Service/HistoryService/HistoryService";
 
 interface UsersState {
     currentUsers?: User[];
@@ -38,7 +39,7 @@ export class Users extends React.Component<{}, UsersState> {
     }
 
     public componentDidMount() {
-        this.dataProvider = Page.getDataProvider<User>(UserDataProviderName);
+        this.dataProvider = PageContext.getDataProvider<User>(UserDataProviderName);
         this.dataProvider
             .fetch()
             .then((users: User[]) => {

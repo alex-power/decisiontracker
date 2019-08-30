@@ -1,2 +1,2 @@
 export { IPageData } from "./PageData";
-export { Page } from "./Page";
+export { PageContext } from "./Page";

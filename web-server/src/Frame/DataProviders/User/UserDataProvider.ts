@@ -1,6 +1,6 @@
 import { User } from "./UserDataProvider.Types";
 import { IDataProvider } from "../IDataProvider";
-import { Page } from "Frame/Page";
+import { PageContext } from "Frame/Page";
 import { CachingDataProvider } from "../CachingDataProvider";
 import { RestDataProvider } from "../RestDataProvider";
 
@@ -11,4 +11,4 @@ const keyExtractor = (user: User) => {
     return `${user.id}`;
 };
 
-Page.registerDataProvider(new CachingDataProvider(new RestDataProvider("users"), keyExtractor), UserDataProviderName);
+PageContext.registerDataProvider(new CachingDataProvider(new RestDataProvider("users"), keyExtractor), UserDataProviderName);

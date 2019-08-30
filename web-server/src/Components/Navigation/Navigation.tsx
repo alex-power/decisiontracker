@@ -14,7 +14,7 @@ export const styles = (theme: Theme) =>
 
 class NavigationComponent extends React.Component<INavigationProps> {
     public render() {
-        const { classes, navigationGroups, onNavigationItemClick } = this.props;
+        const { classes, navigationGroups } = this.props;
 
         return (
             <Drawer anchor="left" className={classes.drawer} variant="permanent">
@@ -24,7 +24,7 @@ class NavigationComponent extends React.Component<INavigationProps> {
                     <React.Fragment key={`list-${index}`}>
                         <List>
                             {group.items.map((item, index) => (
-                                <ListItem button key={item.primaryText} onClick={event => onNavigationItemClick && onNavigationItemClick(event, index)}>
+                                <ListItem button key={item.primaryText} onClick={event => item.onClick && item.onClick(event)}>
                                     {item.onRenderIcon && <ListItemAvatar>{item.onRenderIcon()}</ListItemAvatar>}
                                     <ListItemText primary={item.primaryText} secondary={item.secondaryText} />
                                 </ListItem>

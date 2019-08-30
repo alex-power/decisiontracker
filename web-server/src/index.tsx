@@ -9,23 +9,24 @@ import { Users } from "PageContent/Admin/Users";
 const navigationGroups: INavigationGroup[] = [
     {
         items: [
-            { primaryText: "Inbox", secondaryText: "Kicker text goes here!", onRenderIcon: () => <InboxIcon /> },
+            { primaryText: "Inbox", secondaryText: "Kicker text goes here!", onRenderIcon: () => <InboxIcon />, onClick: () => console.log("Navigate to Inbox") },
             {
                 primaryText: "Notifications",
                 onRenderIcon: () => (
                     <Badge color="secondary" badgeContent={2}>
                         <Alarm />
                     </Badge>
-                )
+                ),
+                onClick: () => console.log("Navigate to Notifications")
             }
         ]
     },
-    { items: [{ primaryText: "New group test" }] }
+    { items: [{ primaryText: "New group test" }, {primaryText: "Fuckin dab on em"}] }
 ];
 
 ReactDOM.render(
     <div style={{ display: "flex", flexDirection: "row" }}>
-        <Navigation navigationGroups={navigationGroups} onNavigationItemClick={(event, index) => console.log(`Clicked on ${index}`)} />
+        <Navigation navigationGroups={navigationGroups} />
         <main style={{ flexGrow: 1 }}>
             <Users />
         </main>
